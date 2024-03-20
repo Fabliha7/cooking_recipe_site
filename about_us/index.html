@@ -1,0 +1,535 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodBaZZ</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/favicon.jpg" type="image/x-icon" />
+    <link href="./output.css" rel="stylesheet">
+
+    <!-- tailwind link from tailwindcss.com -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- navbar -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <!--AOS Animation er jonno duita CDN link use korte hoy 1. CSS 2. JS -->
+    <!-- cdn link for on-scroll-animation from AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <!--====== footer icon link =====-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <style>
+        .bg-design1 {
+            width: 380px;
+            position: absolute;
+            top: 600px;
+            left: 200px;
+            z-index: -1;
+        }
+
+        .bg-design2 {
+            width: 380px;
+            position: absolute;
+            top: 500px;
+            right: 200px;
+            z-index: -1;
+        }
+
+        .bg-gray-200 {
+            width: 100%;
+            position: absolute;
+
+        }
+
+        .fourth-section {
+            position: absolute;
+            top: 1300px;
+        }
+
+        .bg-design {
+            position: absolute;
+            top: 1000px;
+            z-index: -1;
+            width: 650px;
+
+        }
+
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: rgb(0, 0, 0);
+        }
+
+        .contact-us {
+            margin-top: 20px;
+        }
+
+        .contact-us p {
+            margin: 5px 0;
+        }
+
+        .copyright {
+            margin-top: 20px;
+        }
+
+        /* .last-section { */
+        /* background-image: url(img/bg.jpeg); */
+        /* background-repeat: no-repeat; */
+        /* } */
+
+       /*======== nav ============*/
+
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 80px;
+  align-items: center;
+  padding: 0px 40px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+.logo {
+  font-size: 30px;
+  color: orange;
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: #000000bb;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  flex: 1; /* Take up all available space */
+  justify-content: center; /* Center the items horizontally */
+  font-size: 1.5rem;
+  margin-right: auto;
+}
+
+.nav a {
+  padding: 5px 15px;
+  color: orange;
+  font-size: 20px;
+  text-decoration: none;
+  text-shadow: rgba(0, 0, 10, 0.434) 1px -2px 20px;
+}
+
+.nav a:hover {
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
+  text-underline-position: under;
+  text-shadow: rgba(255, 136, 0, 0.654) 1px -2px 20px;
+}
+
+
+.nav__search,
+.nav__login {
+  font-size: 1.5rem;
+  color: #f99e66;
+  cursor: pointer;
+  transition: color 0.4s;
+  text-shadow: rgb(1, 0, 10) 1px -2px 30px;
+  text-decoration: none;
+}
+
+.nav__search:hover,
+.nav__login:hover {
+  color: #000000bb;
+  text-decoration: none;
+  align-items: center;
+}
+
+/*======= login dropdown =======*/
+
+.dropdown-one {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-one, .dropdown-content a {
+  list-style: none;
+  height: 100%;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  position: absolute;
+  padding: 0.5rem 0px;
+  margin: 0.3rem 0.1rem;
+  background: rgb(249, 178, 85);
+  color: black;
+  box-shadow: 0 0 50px rgb(5, 2, 0);
+  border-radius: 0.5rem;
+  font-size: 12px;
+  display: none;
+}
+
+.dropdown-one:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background: black;
+  color: #fff;
+  border-radius: 0.5rem;
+}
+
+/* ... (your existing styles) */
+
+/* ===== search ========*/
+
+.search {
+  position: absolute;
+  align-items: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: hsla(231, 28%, 90%, 0.1);
+  backdrop-filter: blur(24px);
+  padding: 8rem 1.5rem 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+.search__close {
+  position: absolute;
+  align-items: center;
+  top: 2rem;
+  left: 50%;
+  font-size: 2rem;
+  color: hsl(30, 96%, 52%);
+  cursor: pointer;
+}
+
+.search__form {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  background-color: hsl(31, 90%, 92%);
+  box-shadow: 0 8px 32px hsl(31, 90%, 51%);
+  padding-inline: 1rem;
+  border-radius: rgb(248, 238, 238) 5rem;
+  transform: translateY(-1rem);
+  transition: transform 0.4s;
+}
+
+.search__icon {
+  font-size: 1.25rem;
+  color: hsl(30, 96%, 56%);
+}
+
+.search__input {
+  width: 100%;
+  padding-block: 1rem;
+  background-color: hsl(31, 90%, 92%);
+  color: hsl(230, 12%, 40%);
+  border: #f2f2f2;
+}
+
+.search__input::placeholder {
+  color: hsl(230, 12%, 40%);
+}
+
+.show-search {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.show-search .search__form {
+  transform: translateY(0);
+}
+    </style>
+</head>
+
+<body class="bg-gray-200">
+
+
+    <!--  ============  nav bar ============-->
+<div class="top">
+    <a href="#" class="logo">FoodBuZZ</a>
+    <div class="nav">
+        <a href="../order_setting_admin_home_nitu/homepage/index.html">Home</a>
+        <a href="../recipe/1st_page/1st_page.html">Recipe</a>
+        <a href="../order_setting_admin_home_nitu/order/index.html">Order now</a>
+        <a href="../about_us/index.html">About us</a>
+    </div>
+  
+    <div class="nav__actions">
+      <i class="ri-search-line nav__search" id="search-btn"></i>
+      <div class="dropdown-one" id="login-dropdown">
+          <a href="#" class="ri-user-line nav__login" id="login-btn"></a>
+          <div class="dropdown-content" id="login-dropdown-content">
+              <a href="../login_reg_forget/user/user_profile/profile.html">Profile</a>
+              
+              <a href="../order_setting_admin_home_nitu/settings/settings.html">Settings</a>
+              <a href="../login_reg_forget/user/logout/logout-confirmation.html">Logout</a>
+          </div>
+      </div>
+  </div>
+<!--============= search =================-->
+    <div class="search" id="search">
+        <form action="" class="search__form">
+            <i class="ri-search-line search__icon"></i>
+            <input type="search" placeholder="What are you looking for?" class="search__input">
+        </form>
+
+        <i class="ri-close-line search__close" id="search-close"></i>
+    </div>
+</div>
+
+    <!-- nav end -->
+
+    <span class="bg-orange-400 h-28 bg-design1" data-aos="fade-right" data-aos-offset="300
+        data-aos-easing=">
+
+    </span>
+    <span class="bg-orange-400 h-24 bg-design2" data-aos="fade-left" data-aos-duration="500">
+
+    </span>
+    <section class="bg-orange-500 flex font-extralight">
+        <div class="text-center text-slate-200 pt-20 ">
+
+            <h1 class="text-3xl font-bold ml-5" data-aos="fade-left">About Our Site</h1>
+            <h6 class="text-left ml-52 mr-40 mt-3" data-aos="fade-right">
+                Lorem ipsum dolor sit amet consectetur adipisicing <br>elit. Fugiat eveniet, necessitatibus minus velit
+                amet
+                corrupti exercitat
+            </h6>
+            <button
+                class="border-2 px-6 py-1 rounded-2xl mt-7 hover:bg-white hover:text-orange-500 hover:border-white mr-24"
+                data-aos="fade-right">visit
+                us</button>
+        </div>
+        <div data-aos="fade-left" data-aos-duration="1500">
+            <img src="img/Capture.PNG" alt="">
+        </div>
+    </section>
+
+    <section class="flex font-extralight mt-14 mx-60">
+        <div>
+            <img src="img/Capture2.PNG" alt="" data-aos="fade-up" data-aos-duration="2000">
+        </div>
+        <div class="bg-white pt-16" data-aos="fade-down" data-aos-duration="2000">
+            <h1 class="text-3xl font-bold ml-5">About Us</h1>
+            <h6 class="text-left ml-5 mt-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing <br>elit. Fugiat eveniet, necessitatibus minus velit
+                amet
+                corrupti exercitat
+            </h6>
+            <button
+                class="border-2 border-orange-400 px-6 py-1 rounded-2xl mt-7 hover:bg-black hover:text-white hover:border-black ml-5">visit
+                us</button>
+        </div>
+    </section>
+
+    <section class=" mt-14 4th-section">
+        <div class="bg-orange-400 h-64 bg-design ml-60" data-aos="fade-right" data-aos-offset="300"
+            data-aos-easing="ease-in-sine">
+
+        </div>
+        <div class="">
+            <div class="ml-80" data-aos="fade-left" data-aos-duration="1500">
+                <img src="img/44.jpg" class="" alt="">
+            </div>
+            <div class="bg-white w-96 h-72 px-7 py-11 relative  bottom-28 ml-44" data-aos="fade-down"
+                data-aos-easing="linear" data-aos-duration="1500">
+                <h1 class="text-3xl font-bold ml-5">Handemade Pizza</h1>
+                <p class="text-left ml-5 mt-3 text-gray-500">Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut
+                    aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit.</p>
+                <button
+                    class="border-2 border-orange-400 px-6 py-1 rounded-2xl mt-7 hover:bg-black hover:text-white hover:border-black ml-5">Learn
+                    more</button>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="flex details mt-14 mx-28 fourth-section">
+
+        <div class="m-20 ml-32" data-aos="fade-right" data-aos-offset="100" data-aos-easing="ease-in-sine">
+            <h1>About Us</h1>
+            <p>Italy's Pizza & Pasta Company serves <br>calzones, pasta, pizzas, salads, <br> strombolis, and more to
+                the
+                Buford,
+                GA area.</p>
+            <h1>Year Established</h1>
+            <p>2010</p>
+            <h1>Products</h1>
+            <p>
+            <ul class="list-disc ml-4">
+                <li>Appetizers</li>
+                <li>Calzones</li>
+                <li>Pizza</li>
+                <li>Pasta</li>
+                <li>Salads</li>
+                <li>Stromboli</li>
+                <li>Subs</li>
+            </ul>
+            </p>
+        </div>
+
+        <div class="mt-20 ml-10" data-aos="fade-left" data-aos-duration="500">
+            <h1>Services</h1>
+            <ul class="list-disc ml-4">
+                <li>Dine-in</li>
+                <li>Catering</li>
+            </ul>
+
+            <h1>Specialties</h1>
+            <ul class="list-disc ml-4">
+
+                <li>Pizza</li>
+                <li>Pasta</li>
+                <li>Burgers</li>
+            </ul>
+            <h1>Business Hours</h1>
+            <span class="flex">
+                <div>
+                    <p>Mon - Thu</p>
+                    <p>Fri, Sat </p>
+                    <p>Sun </p>
+                </div>
+
+                <div class="ml-6">
+                    <p> 11:00 am - 9:00 pm</p>
+                    <p> 11:00 am - 10:00 pm</p>
+                    <p> 12:00 pm - 9:00 pm</p>
+                </div>
+            </span>
+
+        </div>
+    </section>
+
+    <!-- 
+    <section class="last-section flex">
+        <div>
+            <h1>Find Us</h1>
+            <p>121 Rock Sreet, 21 Avenue, New York, NY 92103-9000</p>
+        </div>
+        <div>
+
+            <h1>HOURS</h1>
+            <p>Monday – Saturday
+                9am – 7pm
+                Sunday
+                10am – 6pm</p>
+        </div>
+        <div>
+            <h1>CALL US</h1>
+            <p>3192319310</p>
+            <p>3192319310</p>
+        </div>
+    </section> -->
+
+    <section class="mt-80 flex last-section bg-orange-400 pt-20 pb-32">
+        <div class="bg-white mx-7 p-7 ml-72 text-center" data-aos="fade-up" data-aos-duration="2000">
+            <h1 class="font-bold">Find Us</h1>
+            <p class="text-sm text-gray-600 mt-3">121 Rock Sreet, 21 Avenue, New York, NY 92103-9000</p>
+        </div>
+        <div class="bg-white mx-1 p-7 text-center" data-aos="fade-up" data-aos-duration="2000">
+
+            <h1 class="font-bold">HOURS</h1>
+            <p class="text-sm text-gray-600 mt-3">Monday – Saturday
+                9am – 7pm
+                Sunday
+                10am – 6pm</p>
+        </div>
+        <div class="bg-white mx-7 p-7 mr-72 text-center" data-aos="fade-up" data-aos-duration="2000">
+            <h1 class="font-bold">CALL US</h1>
+            <p class=" mt-3"><a href="" class="hover:text-red-500 hover:underline">3192319310</a></p>
+            <p><a href="" class="hover:text-red-500 hover:underline">3192319310</a></p>
+        </div>
+
+    </section>
+
+
+    <footer class="text-center bg-black text-white pt-10">
+        <div class="social-icons">
+            <p class="font-bold">Connect with us</p><br>
+            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook hover:text-blue-700"></i></a>
+            <a href="https://twitter.com/i/flow/signup" target="_blank"><i
+                    class="fab fa-twitter hover:text-blue-400"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i
+                    class="fab fa-instagram hover:text-orange-500"></i></a>
+            <a href="https://www.pinterest.com/" target="_blank"><i
+                    class="fab fa-pinterest  hover:text-red-700"></i></a>
+            <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube hover:text-red-700"></i></a>
+            <br>
+        </div>
+        <div class="contact-us">
+            <p>Contact-info</p>
+            <p>Email: <a href="#" class="hover:underline hover:text-orange-300">foodbuzz@gmail.com</a></p>
+            <p>Phone: <span class=" hover:text-orange-300">+1 (123) 456-7890</span></p>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2024 Foodbuzz. All rights reserved.</p>
+        </div>
+
+    </footer>
+
+
+    <!-- cdn link for on-scroll-animation from AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+
+        // navabr
+        document.addEventListener('DOMContentLoaded', function () {
+            const search = document.getElementById('search'),
+                searchBtn = document.getElementById('search-btn'),
+                searchClose = document.getElementById('search-close');
+
+            /* Search show */
+            searchBtn.addEventListener('click', () => {
+                search.classList.add('show-search');
+            });
+
+            /* Search hidden */
+            searchClose.addEventListener('click', () => {
+                search.classList.remove('show-search');
+            });
+        })
+    </script>
+</body>
+
+</html>
