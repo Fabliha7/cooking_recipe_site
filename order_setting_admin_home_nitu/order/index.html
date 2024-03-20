@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-0ys2jv4ZNh0g38p7mxUQmO6yYjzX3gKdF+nd89uwbI+a5C9WB5+vb0pUgPxMveQ9" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(32, 27, 27, 0.1);
+            background-image: url('hehe.png'); 
+            background-size: cover; 
+            background-position: center; 
+        }
+        h1, h2 {
+            text-align: center;
+            color: rgb(6, 0, 0); 
+        }
+        select, button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #c7d5e3;
+            font-size: 14px;
+            color: #e9f0f9;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #3b628d;
+        }
+        .menu-category {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .menu-item {
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #a7c297; /* Default category color */
+            color: #586577;
+            text-align: center;
+            font-size: 14px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease; /* Add transition for background color change */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black; /* Add black border */
+        }
+        .menu-item:hover {
+            transform: scale(1.02);
+            background-color: #e1d1e0; /* Lighter color on hover */
+        }
+        .price {
+            margin-top: 3px;
+            font-weight: bold;
+            color: #000000d5;
+            background-color: rgb(255, 255, 255); /* Light color for price tag with transparency */
+            padding: 3px 3px; /* Adjust padding for better appearance */
+            border-radius: 3px; /* Add border radius for price tag */
+        }
+        /* Adjust button size and style */
+        button.order-button {
+            padding: 8px 12px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3b628d;
+            color: white;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button.order-button:hover {
+            background-color: #294562;
+        }
+       /* Styles for desktop/laptop screens */
+    @media (min-width: 768px) {
+        /* Add your desktop/laptop specific styles here */
+        .container {
+            padding: 20px;
+        }
+        .menu-category {
+            gap: 10px;
+        }
+        .menu-item {
+            padding: 15px;
+            font-size: 14px;
+        }
+        .price {
+            font-size: 16px;
+        }
+    }
+
+    /* Styles for mobile phones */
+    @media (max-width: 767px) {
+        /* Add your mobile specific styles here */
+        .container {
+            padding: 20px;
+        }
+        .menu-category {
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        .menu-item {
+            padding: 15px;
+            font-size: 14px;
+        }
+        .price {
+            font-size: 14px;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to Our Order Page</h1>
+        <h2>Select a Menu Category</h2>
+        <div class="menu-category">
+            <div class="menu-item" onclick="showMenu('seafood')">
+                <i class="fas fa-fish"></i> Seafood
+            </div>
+            <div class="menu-item" onclick="showMenu('healthyfood')">
+                <i class="fas fa-leaf"></i> Healthy Food
+            </div>
+            <div class="menu-item" onclick="showMenu('coffee')">
+                <i class="fas fa-coffee"></i> Coffee
+            </div>
+            <div class="menu-item" onclick="showMenu('desserts')">
+                <i class="fas fa-birthday-cake"></i> Desserts
+            </div>
+            <div class="menu-item" onclick="showMenu('biryani')">
+                <i class="fas fa-utensils"></i> Biryani
+            </div>
+            <div class="menu-item" onclick="showMenu('paneer')">
+                <i class="fas fa-cheese"></i> Paneer Dishes
+            </div>
+            <div class="menu-item" onclick="showMenu('southindian')">
+                <i class="fas fa-utensils"></i> South Indian
+            </div>
+            <div class="menu-item" onclick="showMenu('chinese')">
+                <i class="fas fa-utensils"></i> Chinese
+            </div>
+            <div class="menu-item" onclick="showMenu('desifood')">
+                <i class="fas fa-pepper-hot"></i> Desi Food
+            </div>
+            <div class="menu-item" onclick="showMenu('chicken')">
+                <i class="fas fa-drumstick-bite"></i> Chicken Dishes
+            </div>
+            <div class="menu-item" onclick="showMenu('beef')">
+                <i class="fas fa-drumstick-bite"></i> Beef Dishes
+            </div>
+            <div class="menu-item" onclick="showMenu('kabab')">
+                <i class="fas fa-drumstick-bite"></i> Kababs
+            </div>
+        </div>
+        <div id="menu"></div>
+    </div>
+
+    <script>
+        // Menu data embedded in the HTML file with icons
+        var menuData = {
+            "seafood": [
+                { name: "Fish and Chips", icon: "fas fa-fish", price: "$12.99" , orderNow: "Order Now"},
+                { name: "Shrimp Scampi", icon: "fas fa-shrimp", price: "$15.99", orderNow: "Order Now" },
+                { name: "Grilled Salmon", icon: "fas fa-fish", price: "$18.99", orderNow: "Order Now" } 
+            ],
+            "healthyfood": [
+                { name: "Quinoa Salad", icon: "fas fa-leaf", price: "$9.99", orderNow: "Order Now" },
+                { name: "Grilled Chicken Wrap", icon: "fas fa-drumstick-bite", price: "$11.99", orderNow: "Order Now" },
+                { name: "Vegetable Stir-Fry", icon: "fas fa-carrot", price: "$10.99" , orderNow: "Order Now"}
+            ],
+            "coffee": [
+                { name: "Espresso", icon: "fas fa-coffee", price: "$3.99" , orderNow: "Order Now"},
+                { name: "Cappuccino", icon: "fas fa-coffee", price: "$4.99" , orderNow: "Order Now"},
+                { name: "Latte", icon: "fas fa-coffee", price: "$5.99", orderNow: "Order Now" }
+            ],
+            "desserts": [
+                { name: "Chocolate Cake", icon: "fas fa-birthday-cake", price: "$7.99" , orderNow: "Order Now"},
+                { name: "Apple Pie", icon: "fas fa-apple-alt", price: "$6.99" , orderNow: "Order Now"},
+                { name: "Ice Cream Sundae", icon: "fas fa-ice-cream", price: "$8.99" , orderNow: "Order Now"}
+            ],
+            "biryani": [
+                { name: "Chicken Biryani", icon: "fas fa-drumstick-bite", price: "$14.99" , orderNow: "Order Now"},
+                { name: "Vegetable Biryani", icon: "fas fa-carrot", price: "$12.99", orderNow: "Order Now" },
+                { name: "Beef Biryani", icon: "fas fa-drumstick-bite", price: "$16.99" , orderNow: "Order Now"}
+            ],
+            "paneer": [
+                { name: "Paneer Tikka", icon: "fas fa-cheese", price: "$13.99", orderNow: "Order Now" },
+                { name: "Palak Paneer", icon: "fas fa-cheese", price: "$11.99" , orderNow: "Order Now"},
+                { name: "Paneer Butter Masala", icon: "fas fa-cheese", price: "$14.99", orderNow: "Order Now" }
+            ],
+            "southindian": [
+                { name: "Dosa", icon: "fas fa-utensils", price: "$9.99" , orderNow: "Order Now"},
+                { name: "Idli", icon: "fas fa-utensils", price: "$8.99", orderNow: "Order Now" },
+                { name: "Vada", icon: "fas fa-utensils", price: "$7.99" , orderNow: "Order Now"}
+            ],
+            "chinese": [
+                { name: "Chow Mein", icon: "fas fa-utensils", price: "$10.99", orderNow: "Order Now" },
+                { name: "Spring Rolls", icon: "fas fa-utensils", price: "$8.99" , orderNow: "Order Now"},
+                { name: "Hot and Sour Soup", icon: "fas fa-utensils", price: "$7.99" , orderNow: "Order Now"}
+            ],
+            "desifood": [
+                { name: "Chicken Karahi", icon: "fas fa-pepper-hot", price: "$12.99", orderNow: "Order Now" },
+                { name: "Daal", icon: "fas fa-pepper-hot", price: "$9.99" , orderNow: "Order Now"},
+                { name: "Bhindi Masala", icon: "fas fa-pepper-hot", price: "$10.99", orderNow: "Order Now" }
+            ],
+            "chicken": [
+                { name: "Chicken Curry", icon: "fas fa-drumstick-bite", price: "$12.99", orderNow: "Order Now" },
+                { name: "Chicken Tikka Masala", icon: "fas fa-drumstick-bite", price: "$14.99" , orderNow: "Order Now"},
+                { name: "Butter Chicken", icon: "fas fa-drumstick-bite", price: "$15.99", orderNow: "Order Now" }
+            ],
+            "beef": [
+                { name: "Beef Korma", icon: "fas fa-drumstick-bite", price: "$14.99", orderNow: "Order Now" },
+                { name: "Beef Curry", icon: "fas fa-drumstick-bite", price: "$16.99", orderNow: "Order Now" },
+                { name: "Beef Pulao", icon: "fas fa-drumstick-bite", price: "$17.99" , orderNow: "Order Now"}
+            ],
+            "kabab": [
+                { name: "Seekh Kabab", icon: "fas fa-drumstick-bite", price: "$11.99" , orderNow: "Order Now"},
+                { name: "Shami Kabab", icon: "fas fa-drumstick-bite", price: "$10.99" , orderNow: "Order Now"},
+                { name: "Reshmi Kabab", icon: "fas fa-drumstick-bite", price: "$12.99", orderNow: "Order Now" }
+            ]
+        };
+        function showMenu(category) {
+        var menuItems = menuData[category];
+        if (menuItems && menuItems.length > 0) {
+            var menuHTML = "<h2>" + category.toUpperCase() + " Menu</h2><ul>";
+            menuItems.forEach(function(item) {
+                menuHTML += "<li class='menu-item' style='background-color: " + getRandomColor() + "; border: 1px solid black;'>" +
+                            "<i class='" + item.icon + "'></i> " +
+                            item.name +
+                            "<span class='price'>" + item.price + "</span>" +
+                            "<button class='order-button'>" + item.orderNow + "</button></li>";
+            });
+            menuHTML += "</ul>";
+            document.getElementById("menu").innerHTML = menuHTML;
+        } else {
+            document.getElementById("menu").innerHTML = "<p>No menu available for this category.</p>";
+        }
+    }
+    // Function to redirect to the order page
+    function redirectToOrderPage(itemName, itemPrice) {
+            // Construct the URL of the order page with query parameters
+            var url ="E:\food website project\order_setting_admin_home_nitu\your_orderindex.html";
+            // Navigate to the order page
+            window.location.href = "E:\food website project\order_setting_admin_home_nitu\your_orderindex.html";
+        }
+
+        // Function to generate random color
+        function getRandomColor() {
+         return "#FFD1DC"
+}
+
+    </script>
+</body>
+</html>

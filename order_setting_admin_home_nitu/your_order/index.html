@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Order</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('lala.png'); 
+  background-size: cover; /* Ensure the background image covers the entire viewport */
+  background-position: center; /* Center the background image */
+}
+
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #b6a0a0;
+      border-radius: 10px;
+      background-color: #cbb7b7;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .items {
+      margin-bottom: 20px;
+      overflow: auto; /* Clearfix for floated items */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .item {
+      width: calc(33.33% - 20px); /* Adjusted width to accommodate six items in a row */
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      box-sizing: border-box;
+    }
+
+    .item:hover {
+      background-color: #acc38f;
+    }
+
+    .item span {
+      display: block;
+      font-size: 16px;
+      color: #4e5061;
+    }
+
+    .item input {
+      width: 40px;
+      padding: 5px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .totals {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #555;
+    }
+
+    .address {
+      margin-top: 20px;
+    }
+
+    .address h2 {
+      color: #333;
+    }
+
+    .address label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    .address input,
+    .address select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #placeOrderBtn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background-color: #18132f;
+      color: #988165;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #placeOrderBtn:hover {
+      background-color: #61053c;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Your Order</h1>
+    <div class="items">
+      <!-- Items will be dynamically added here -->
+    </div>
+    <div class="totals">
+      <span>Subtotal:</span>
+      <span id="subtotal">$0.00</span>
+    </div>
+    <div class="totals">
+      <span>Delivery Fee:</span>
+      <span id="deliveryFee">$0.00</span>
+    </div>
+    <div class="address">
+      <h2>Delivery Address</h2>
+      <label for="deliveryAddress">Delivery Address:</label>
+      <input type="text" id="deliveryAddress" placeholder="Enter your delivery address">
+    </div>
+    <div class="address">
+      <h2>Payment Method</h2>
+      <label for="paymentMethod">Payment Method:</label>
+      <select id="paymentMethod">
+        <option value="creditCard">Credit Card</option>
+        <option value="paypal">PayPal</option>
+        <!-- Add more payment options as needed -->
+      </select>
+    </div>
+    <button id="placeOrderBtn">Place Order</button>
+  </div>
+
+  <script>
+    // Sample item data
+    const menu = {
+      "seafood": [
+        { name: "Fish and Chips", price: 12.99 },
+        { name: "Shrimp Scampi", price: 15.99 },
+        { name: "Grilled Salmon", price: 18.99 }
+      ],
+      "healthyfood": [
+        { name: "Quinoa Salad", price: 9.99 },
+        { name: "Grilled Chicken Wrap", price: 11.99 },
+        { name: "Vegetable Stir-Fry", price: 10.99 }
+      ],
+      "coffee": [
+        { name: "Espresso", price: 3.99 },
+        { name: "Cappuccino", price: 4.99 },
+        { name: "Latte", price: 5.99 }
+      ],
+      "desserts": [
+        { name: "Chocolate Cake", price: 7.99 },
+        { name: "Apple Pie", price: 6.99 },
+        { name: "Ice Cream Sundae", price: 8.99 }
+      ],
+      "biryani": [
+        { name: "Chicken Biryani", price: 14.99 },
+        { name: "Vegetable Biryani", price: 12.99 },
+        { name: "Beef Biryani", price: 16.99 }
+      ],
+      "paneer": [
+        { name: "Paneer Tikka", price: 13.99 },
+        { name: "Palak Paneer", price: 11.99 },
+        { name: "Paneer Butter Masala", price: 14.99 }
+      ],
+      "southindian": [
+        { name: "Dosa", price: 9.99 },
+        { name: "Idli", price: 8.99 },
+        { name: "Vada", price: 7.99 }
+      ],
+      "chinese": [
+        { name: "Chow Mein", price: 10.99 },
+        { name: "Spring Rolls", price: 8.99 },
+        { name: "Hot and Sour Soup", price: 7.99 }
+      ],
+      "desifood": [
+        { name: "Chicken Karahi", price: 12.99 },
+        { name: "Daal", price: 9.99 },
+        { name: "Bhindi Masala", price: 10.99 }
+      ],
+      "chicken": [
+        { name: "Chicken Curry", price: 12.99 },
+        { name: "Chicken Tikka Masala", price: 14.99 },
+        { name: "Butter Chicken", price: 15.99 }
+      ],
+      "beef": [
+        { name: "Beef Korma", price: 14.99 },
+        { name: "Beef Curry", price: 16.99 },
+        { name: "Beef Pulao", price: 17.99 }
+      ],
+      "kabab": [
+        { name: "Seekh Kabab", price: 11.99 },
+        { name: "Shami Kabab", price: 10.99 },
+        { name: "Reshmi Kabab", price: 12.99 }
+      ]
+    };
+
+    // Function to dynamically generate item checkboxes
+    function generateItemCheckboxes() {
+      const itemsDiv = document.querySelector('.items');
+      itemsDiv.innerHTML = '';
+      for (const category in menu) {
+        menu[category].forEach(item => {
+          const itemContainer = document.createElement('div');
+          itemContainer.classList.add('item');
+          const itemName = document.createElement('span');
+          itemName.textContent = item.name;
+          const itemQuantity = document.createElement('input');
+          itemQuantity.type = 'number';
+          itemQuantity.min = 0;
+          itemQuantity.value = 0;
+          itemQuantity.addEventListener('change', updateTotals);
+          itemContainer.appendChild(itemName);
+          itemContainer.appendChild(itemQuantity);
+          itemsDiv.appendChild(itemContainer);
+        });
+      }
+    }
+
+    // Function to calculate subtotal
+    function calculateSubtotal() {
+      let subtotal = 0;
+      document.querySelectorAll('.item').forEach(itemContainer => {
+        const itemName = itemContainer.querySelector('span').textContent;
+        const itemQuantity = parseInt(itemContainer.querySelector('input').value);
+        const item = findItem(itemName);
+        subtotal += item.price * itemQuantity;
+      });
+      return subtotal;
+    }
+
+    // Function to update subtotal and delivery fee
+    function updateTotals() {
+      const subtotal = calculateSubtotal();
+      const deliveryFee = 5; // Sample delivery fee, you can adjust it as needed
+      document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById('deliveryFee').textContent = `$${deliveryFee.toFixed(2)}`;
+    }
+
+    // Function to find an item by its name
+    function findItem(name) {
+      for (const category in menu) {
+        const item = menu[category].find(item => item.name === name);
+        if (item) {
+          return item;
+        }
+      }
+      return null;
+    }
+
+    // Event listener for Place Order button
+    document.getElementById('placeOrderBtn').addEventListener('click', function() {
+      // Handle placing order
+      const paymentMethod = document.getElementById('paymentMethod').value;
+      const deliveryAddress = document.getElementById('deliveryAddress').value;
+      const subtotal = calculateSubtotal();
+      const deliveryFee = 5; // Sample delivery fee, you can adjust it as needed
+      const totalAmount = subtotal + deliveryFee;
+
+      // Display order summary
+      alert(`Your order summary:\n\nSubtotal: $${subtotal.toFixed(2)}\nDelivery Fee: $${deliveryFee.toFixed(2)}\nTotal: $${totalAmount.toFixed(2)}\n\nPayment Method: ${paymentMethod}\nDelivery Address: ${deliveryAddress}`);
+    });
+
+    // Initialize page
+    generateItemCheckboxes();
+    updateTotals();
+  </script>
+</body>
+</html>
+

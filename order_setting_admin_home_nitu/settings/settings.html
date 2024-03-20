@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Settings</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('bg.png'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            color: #333;
+            transition: background-color 0.5s ease;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        label , label[for="oldPassword"],
+        label[for="newPassword"],
+        label[for="confirmPassword"]{
+
+            margin-top: 20px;
+            display: inline-block;
+            text-align: left;
+            margin-bottom: 12px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="file"],
+        input[type="tel"] {
+            width: calc(100% - 16px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 8px;
+            display: block;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        .social-section {
+            display: none;
+            flex-direction: column;
+            gap: 8px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+            margin-inline: 20px;
+        }
+
+        .arrow-icon::before {
+            content: '\e5c5';
+            font-family: 'Material Icons';
+            cursor: pointer;
+            font-size: 24px;
+            color: #3498db;
+            transition: transform 0.3s ease;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            margin-inline: 20px;
+        }
+
+        .social-info {
+            display: none;
+            margin-top: 8px;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .arrow-icon.show {
+            transform: rotate(180deg);
+        }
+
+        .social-input {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .social-input label {
+            flex: 1;
+            text-align: left;
+        }
+
+        .social-input input {
+            flex: 2;
+            width: 100%;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        .reset-password-text , .update-social-info-text , .update-user-info-text{
+            flex: 1;
+            text-align: center;
+            color: #3498db;
+        }
+
+        .reset-password-arrow-icon::before , .update-social-info-arrow-icon::before ,.update-user-info-arrow-icon::before {
+            content: '\e5c5';
+            font-family: 'Material Icons';
+            cursor: pointer;
+            font-size: 24px;
+            color: #3498db;
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .rotate-arrow , .rotate-arrow-social-info ,.rotate-arrow-user-info {
+            transform: rotate(180deg);
+        }
+
+        .user-info , .password , .social {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>User Settings</h2>
+
+    <!-- Update User Info Section -->
+    <div class="user-info">
+
+        <div id="updateUserInfoHeader" class="section-header" onclick="toggleUserInfoFields()">
+            <span class="update-user-info-text">Update User Info</span>
+            <span class="update-user-info-arrow-icon"></span>
+        </div>
+
+        <form id="updateUserInfoForm">
+            <img id="previewImage" alt="Profile Preview" style="display: none;">
+            
+            
+            <label for="profilePicture">Profile Picture</label>
+            <input type="file" id="profilePicture" accept="image/*">
+
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter your username">
+
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter your full name">
+
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" id="phoneNumber" placeholder="Enter your phone number">
+
+            <button type="submit" class="button">Update User Info</button>
+        </form>
+    </div>
+
+    <!-- Reset Password Section -->
+    <div class="password">
+        <div id="resetPasswordHeader" class="section-header" onclick="togglePasswordFields()">
+            <span class="reset-password-text">Reset Password</span>
+            <span class="reset-password-arrow-icon"></span>
+        </div>
+
+        <form id="resetPasswordForm" style="display: none;">
+            <label for="oldPassword">Old Password</label>
+            <div class="password-container">
+                <input type="password" id="oldPassword" placeholder="Enter your old password">
+                <span class="toggle-password material-icons" onclick="togglePasswordVisibility('oldPassword')">visibility</span>
+            </div>
+
+            <label for="newPassword">New Password</label>
+            <div class="password-container">
+                <input type="password" id="newPassword" placeholder="Enter your new password">
+                <span class="toggle-password material-icons" onclick="togglePasswordVisibility('newPassword')">visibility</span>
+            </div>
+
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="password-container">
+                <input type="password" id="confirmPassword" placeholder="Confirm your new password">
+                <span class="toggle-password material-icons" onclick="togglePasswordVisibility('confirmPassword')">visibility</span>
+            </div>
+
+            <button type="submit" class="button">Reset Password</button>
+        </form>
+    </div>
+
+    <!--  Update Social Info Section -->
+    <div class="social">
+        <div id="updateSocialInfoHeader" class="section-header" onclick="toggleSocialInfoFields()">
+            <span class="update-social-info-text">Update Social Info</span>
+            <span class="update-social-info-arrow-icon"></span>
+        </div>
+    
+
+        <!-- Facebook Section -->
+        <div class="social-section">
+            <div class="social-section-header" onclick="toggleSocialInfo('facebook')">
+                <span>Facebook</span>
+                <span class="arrow-icon facebook-arrow-icon"></span>
+            </div>
+            <div class="social-info" id="facebookInfo">
+                <div class="social-input">
+                    <label for="facebookUsername">Username</label>
+                    <input type="text" id="facebookUsername" placeholder="Enter your Facebook username">
+                </div>
+                <div class="social-input">
+                    <label for="facebookLink">Link</label>
+                    <input type="text" id="facebookLink" placeholder="Enter your Facebook profile link">
+                </div>
+            </div>
+        </div>
+
+        <!-- Instagram Section -->
+        <div class="social-section">
+            <div class="social-section-header" onclick="toggleSocialInfo('instagram')">
+                <span>Instagram</span>
+                <span class="arrow-icon instagram-arrow-icon"></span>
+            </div>
+            <div class="social-info" id="instagramInfo">
+                <div class="social-input">
+                    <label for="instagramUsername">Username</label>
+                    <input type="text" id="instagramUsername" placeholder="Enter your Instagram username">
+                </div>
+                <div class="social-input">
+                    <label for="instagramLink">Link</label>
+                    <input type="text" id="instagramLink" placeholder="Enter your Instagram profile link">
+                </div>
+            </div>
+        </div>
+
+        <!-- Twitter Section -->
+        <div class="social-section">
+            <div class="social-section-header" onclick="toggleSocialInfo('twitter')">
+                <span>Twitter</span>
+                <span class="arrow-icon twitter-arrow-icon"></span>
+            </div>
+            <div class="social-info" id="twitterInfo">
+                <div class="social-input">
+                    <label for="twitterUsername">Username</label>
+                    <input type="text" id="twitterUsername" placeholder="Enter your Twitter username">
+                </div>
+                <div class="social-input">
+                    <label for="twitterLink">Link</label>
+                    <input type="text" id="twitterLink" placeholder="Enter your Twitter profile link">
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more social sections as needed -->
+
+        <button type="submit" class="button">Update Social Info</button>
+        
+        
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <p style="flex: 1;">Want to delete account?</p>
+            <button onclick="confirmDeleteAccount()" class="button">Delete</button>
+        </div>
+    </div>
+
+    <!-- Logout Section -->
+    <div>
+        <button onclick="logout()" class="button">Logout</button>
+    </div>
+
+    <script>
+        // Your existing JavaScript functions
+
+        function logout() {
+            // Add logic to perform logout actions, such as clearing session/local storage, redirecting to logout endpoint, etc.
+            // For demonstration, let's simply show an alert
+            alert('Logged out successfully!');
+            // You can perform additional actions here before or after logging out
+        }
+
+        const updateUserInfoForm = document.getElementById('updateUserInfoForm');
+        const profilePictureInput = document.getElementById('profilePicture');
+        const previewImage = document.getElementById('previewImage');
+
+        updateUserInfoForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            if (profilePictureInput.files && profilePictureInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = 'block';
+                };
+                reader.readAsDataURL(profilePictureInput.files[0]);
+            }
+            // Add logic to handle updating user info
+            alert('User info updated successfully!');
+        });
+
+        const resetPasswordForm = document.getElementById('resetPasswordForm');
+
+        resetPasswordForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const oldPassword = document.getElementById('oldPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Check if the new password and confirm password match
+            if (newPassword !== confirmPassword) {
+                alert('New Password and Confirm Password do not match. Please try again.');
+                return; // Prevent form submission
+            }
+
+            // Add logic to handle resetting the password
+            alert('Password reset successfully!');
+        });
+
+        function toggleSocialInfo(socialPlatform) {
+            const socialInfo = document.getElementById(`${socialPlatform}Info`);
+            const arrowIcon = document.querySelector(`.${socialPlatform}-arrow-icon`);
+
+            // Toggle the show class for both social info and arrow icon
+            socialInfo.classList.toggle('show');
+            arrowIcon.classList.toggle('show');
+        }
+
+        function toggleSocialInfoFields() {
+            const updateSocialInfoHeader = document.getElementById('updateSocialInfoHeader');
+            const arrowIcon = document.querySelector('#updateSocialInfoHeader .update-social-info-arrow-icon');
+
+            // Toggle the show class for all social sections
+            const socialSections = document.querySelectorAll('.social-section');
+            socialSections.forEach(section => {
+                section.style.display = section.style.display === 'none' ? 'block' : 'none';
+            });
+
+            arrowIcon.classList.toggle('rotate-arrow-social-info', socialSections[0].style.display === 'block');
+        }
+
+        function confirmDeleteAccount() {
+            const confirmDelete = confirm("Are you sure you want to delete your account?");
+            if (confirmDelete) {
+                // Add logic to handle account deletion
+                alert('Account deleted successfully!');
+                // You can redirect to a delete account endpoint or perform other actions here
+            }
+        }
+
+        function togglePasswordFields() {
+            const resetPasswordForm = document.getElementById('resetPasswordForm');
+            const arrowIcon = document.querySelector('#resetPasswordHeader .reset-password-arrow-icon');
+
+            resetPasswordForm.style.display = resetPasswordForm.style.display === 'none' ? 'block' : 'none';
+            arrowIcon.classList.toggle('rotate-arrow', resetPasswordForm.style.display === 'block');
+        }
+
+        function togglePasswordVisibility(passwordFieldId) {
+            const passwordField = document.getElementById(passwordFieldId);
+            const toggleIcon = document.querySelector(`#${passwordFieldId} ~ .toggle-password`);
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.textContent = 'visibility_off';
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.textContent = 'visibility';
+            }
+
+            toggleIcon.classList.toggle('bold');
+        }
+
+        function toggleUserInfoFields() {
+            const updateUserInfoHeader = document.getElementById('updateUserInfoHeader');
+            const arrowIcon = document.querySelector('#updateUserInfoHeader .update-user-info-arrow-icon');
+            const updateUserInfoForm = document.getElementById('updateUserInfoForm');
+
+            // Toggle the display property of the user info form
+            updateUserInfoForm.style.display = updateUserInfoForm.style.display === 'none' ? 'block' : 'none';
+
+            arrowIcon.classList.toggle('rotate-arrow-user-info', updateUserInfoForm.style.display === 'block');
+        }
+    </script>
+
+</div>
+
+</body>
+</html>

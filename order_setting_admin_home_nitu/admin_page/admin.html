@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('6.png'); 
+      background-size: cover; 
+      background-position: center; 
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: rgba(255, 255, 255, 0.8); 
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      width: 350px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      background-color: #022d03;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      background-color: #e5e4de;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      outline: none;
+      background-color: #fbf989cf;
+    }
+  </style>
+</head>
+<body>
+  <form id="loginForm">
+    <h2>Admin Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <input type="submit" value="Login">
+  </form>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+
+      
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+    
+      if (username === "admin" && password === "password") {
+        alert("Login successful!"); 
+      } else {
+        alert("Invalid username or password. Please try again.");
+      }
+    });
+  </script>
+</body>
+</html>

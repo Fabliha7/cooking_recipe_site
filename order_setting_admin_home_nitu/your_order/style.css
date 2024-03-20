@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('lala.png'); 
+    background-size: cover; /* Ensure the background image covers the entire viewport */
+    background-position: center; /* Center the background image */
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #b6a0a0;
+    border-radius: 10px;
+    background-color: #cbb7b7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .items {
+    margin-bottom: 20px;
+    overflow: auto; /* Clearfix for floated items */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .item {
+    width: calc(33.33% - 20px); /* Adjusted width to accommodate six items in a row */
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+  }
+  
+  .item:hover {
+    background-color: #acc38f;
+  }
+  
+  .item span {
+    display: block;
+    font-size: 16px;
+    color: #4e5061;
+  }
+  
+  .item input {
+    width: 40px;
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .totals {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .address {
+    margin-top: 20px;
+  }
+  
+  .address h2 {
+    color: #333;
+  }
+  
+  .address label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .address input,
+  .address select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #placeOrderBtn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #18132f;
+    color: #988165;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #placeOrderBtn:hover {
+    background-color: #61053c;
+  }
+  

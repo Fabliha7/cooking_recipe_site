@@ -1,0 +1,72 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+.container {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(32, 27, 27, 0.1);
+    background-image: url('hehe.png'); 
+    background-size: cover;
+    background-position: center;
+}
+
+h1, h2 {
+    text-align: center;
+    color: rgb(43, 35, 63); 
+}
+
+select, button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #c7d5e3;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #3a526c;
+}
+.menu-category {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.menu-item {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #a7c297;
+    color: #333;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+    background-color: #e1d1e0;
+}
+
+.price {
+    margin-top: 5px;
+    font-weight: bold;
+    color: #5b4c5a;
+    background-color: rgba(239, 210, 249, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
