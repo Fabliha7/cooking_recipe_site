@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Details</title>
+    <link rel="stylesheet" href="payment.css">
+
+<!-- favicon -->
+<link rel="shortcut icon" href="../../../logo photo.png" type="image/x-icon" />
+
+</head>
+<body>
+<div class="page">
+
+    <div class="navbar">
+        <div class="back-arrow" onclick="goBack()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" width="40" height="24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+        </div>
+
+        
+
+        <div class="navbar-links">
+            <a href="../user_profile/profile.html">Profile</a>
+            <a href="../settings/st.html">Settings</a>
+            
+            <div class="dropdown-one">
+                <a href="#">Order</a>
+                <div class="dropdown-content">
+                    <a href="../order_history/order_history.html">Order History</a>
+                    <a href="payment.html">Card</a>
+                </div>
+            </div>
+            <a href="../logout/logout-confirmation.html">Logout</a>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="square" style="--i:0;"></div>
+        <div class="square" style="--i:1;"></div>
+        <div class="square" style="--i:2;"></div>
+        <div class="square" style="--i:3;"></div>
+        <div class="square" style="--i:4;"></div>
+        <div class="square" style="--i:5;"></div>
+        
+    
+        <div class="container">
+            <span ></span>
+            <span></span>
+            <span ></span>
+    
+
+<div class="payment-card">
+    <div class="card-header" style="background-color: rgba(0, 0, 255, 0.326); color: white; text-align: center; padding: 7px; width: 100%; border-radius: 25px ;">
+        <img src="add-card-icon.png" alt="Card Icon" style="width: 30px; height: auto; margin-right: 5px;"> Payment Details
+    </div>
+    <div class="card-logos">
+        <div class="card-logo">
+            <img src="mastercard.png" alt="Mastercard Logo"> <!-- Replace with the actual path to your Mastercard logo -->
+        </div>
+        <div class="card-logo">
+            <img src="visa.png" alt="Visa Logo"> <!-- Replace with the actual path to your Visa logo -->
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="initial-info-container">
+            <div class="singel-data">
+            <label class="name">Cardholder Name:</label>
+            <input type="text" id="initialCardHolder" class="card-field" value="Name" readonly>
+        </div>
+        <div class="singel-data">
+            <label class="name">Card Number:</label>
+            <input type="text" id="initialCardNumber" class="card-field" value="**** **** **** 1234" readonly>
+        </div>
+            <label class="name">Expiration Date:</label>
+            <input type="text" id="initialExpirationDate" class="card-field" value="12/24" readonly>
+            <div class="singel-data">
+            <label class="name">CVV:</label>
+            <input type="text" id="initialCvv" class="card-field" value="" readonly>
+        </div>
+    </div>
+        <div class="card-header" style="background-color: rgba(255, 0, 0, 0.353) ; color: white; text-align: center; padding: 7px; width: 101.9%; border-radius: 25px ; margin-left: -10px;">
+            <img src="add-card-icon.png" alt="Card Icon" style="width: 30px; height: auto; margin-right: 5px;"> Enter the card details
+        </div>
+
+        <div class="card-logos">
+            <div class="card-logo">
+                <img src="mastercard.png" alt="Mastercard Logo"> <!-- Replace with the actual path to your Mastercard logo -->
+            </div>
+            <div class="card-logo">
+                <img src="visa.png" alt="Visa Logo"> <!-- Replace with the actual path to your Visa logo -->
+            </div>
+        </div>
+
+        <div class="card-info" id="cardPaymentInfo">
+            <div class="singel-data">
+            <label class="name">Cardholder Name:</label>
+            <input type="text" id="cardHolder" class="card-field" placeholder="Name">
+        </div>
+            <div class="singel-data">
+            <label class="name">Card Number:</label>
+            <input type="text" id="cardNumber" class="card-field" placeholder="**** **** **** 1234">
+        </div>
+            <div class="singel-data">
+            <label class="name">Expiration Date:</label>
+            <input type="date" id="expirationDate" class="card-field" min="2024-01-01" max="2050-12-31">
+        </div>
+            <div class="singel-data">
+            <label class="name">CVV:</label>
+            <input type="text" id="cvv" class="card-field" placeholder="123">
+        </div>
+            <div id="warning" class="warning"></div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button onclick="updatePayment()">Update</button>
+    </div>
+</div>
+</div>
+    </div>
+</div>
+
+<script src="payment.js"></script>
+
+</body>
+</html>

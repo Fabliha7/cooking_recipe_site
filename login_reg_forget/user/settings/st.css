@@ -1,0 +1,420 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.5s ease;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-image: url(engine-gear-wheels-industrial-background-3d-rendering_42071-379.avif);
+    background-attachment: fixed;
+background-size: cover;
+background-position: center;
+    
+}
+
+
+/*============ nav bar ============*/
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.417);
+    padding: 10px 20px;
+    border-radius: 0 0 25px 25px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 4;
+}
+
+.navbar a {
+    padding: 5px 15px;
+    color: orange;
+    font-size: 20px;
+    text-decoration: none;
+    text-shadow: rgb(251, 110, 22) 1px -2px 20px;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 39.5%;
+}
+
+.navbar a:hover {
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+    text-underline-position: under;
+    text-shadow: rgba(255, 136, 0, 0.654) 1px -2px 20px;
+}
+
+.back-arrow {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.back-arrow svg {
+    color: #fff;
+}
+
+.dropdown-one,
+.dropdown-content a {
+    list-style: none;
+    height: 100%;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    position: absolute;
+    padding: 0.6rem 0px;
+    margin: 0.3rem 0.1rem;
+    background: rgb(249, 178, 85);
+    color: black;
+    box-shadow: 0 0 50px rgb(5, 2, 0);
+    border-radius: 0.5rem;
+    font-size: 12px;
+    display: none;
+    width: 100px;
+}
+
+.dropdown-one:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 0px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background: black;
+    color: #fff;
+    border-radius: 0.5rem;
+    width: 100%;
+    text-decoration: none;
+}
+
+
+.box
+{
+position: relative;
+}
+
+.box .square
+{
+position: absolute;
+
+backdrop-filter: blur(15px);
+box-shadow: 0 25px 45px rgba(0, 0, 0, 0.466);
+border: 1px solid rgba(222, 151, 18, 0.541);
+/*border-right: 1px solid rgba(249, 242, 242, 0.2);
+border-bottom: 1px solid rgba(239, 220, 50, 0.2);*/
+background: rgba(233, 161, 7, 0.1);
+border-radius: 10px;
+animation: animate 10s linear infinite;
+animation-delay: calc(-1s * var(--i));
+}
+
+@keyframes animate
+{
+0%
+{
+    transform: translateY(-40px);
+}
+50%
+{
+    transform: translateY(40px);
+}
+}
+
+.box .square:nth-child(1)
+{
+top: 400px;
+right: 1500px;
+width: 100px;
+height: 100px;
+}
+
+.box .square:nth-child(2)
+{
+top: 150px;
+left: 550px;
+width: 120px;
+height: 120px;
+z-index: 2;
+}
+
+.box .square:nth-child(3)
+{
+bottom: -50px;
+left: 1250px;
+width: 80px;
+height: 80px;
+
+}
+
+.box .square:nth-child(4)
+{
+bottom: -800px;
+right: 1300px;
+width: 80px;
+height: 80px;
+z-index: 2;
+}
+
+.box .square:nth-child(5) 
+{
+top: 400px;
+right: 590px;
+width: 60px;
+height: 60px;
+z-index: 2;
+}
+
+.container {
+    
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #ffffff00;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    
+}
+
+h2 {
+    color: #ffaf53;
+    text-shadow: rgb(0, 0, 0) 0px 0px 7px;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+label , label[for="oldPassword"],
+label[for="newPassword"],
+label[for="confirmPassword"]{
+
+    margin-top: 20px;
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"],
+input[type="tel"] {
+    width: calc(100% - 16px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+#userInfoSection {
+display: none; /* Hide the container initially */
+}
+
+.user-info .section-header {
+cursor: pointer;
+margin-inline: 20px;
+}
+
+.user-info form {
+display: none; /* Hide the form initially */
+}
+
+.rotate-arrow-user-info {
+transform: rotate(180deg);
+}
+
+
+img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 8px;
+    display: block;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #f0b2218f;
+border: 2px solid rgba(247, 168, 64, 0.336);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.button:hover {
+    background-color: rgba(68, 53, 8, 0.509);
+border: 2px solid #555555c9;
+color: #292005; 
+}
+
+.social-section {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    border-bottom: 1px solid #80777748;
+    padding-bottom: 16px;
+    margin-bottom: 10px;
+    margin-inline: 20px;
+    margin-top: 10px;
+}
+
+/*  ================= facebook, .... arrow =====================*/ 
+
+
+
+.arrow-icon::before {
+    content: '\e5c5';
+    font-family: 'Material Icons';
+    cursor: pointer;
+    font-size: 24px;
+    color: #030201;
+    transition: transform 0.3s ease;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    
+    margin-inline: 20px;
+    
+}
+
+.social-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    margin-inline: 20px;
+    margin-top: 8px;
+}
+
+.social-info {
+    display: none;
+    margin-top: 8px;
+    
+}
+
+.show {
+    display: block;
+}
+
+.arrow-icon.show {
+    transform: rotate(180deg);
+}
+
+.social-input {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.social-input label {
+    flex: 1;
+    text-align: left;
+}
+
+.social-input input {
+    flex: 2;
+    width: 100%;
+}
+
+
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.reset-password-text , .update-social-info-text , .update-user-info-text{
+    flex: 1;
+    text-align: center;
+    color: #000000;
+    text-shadow: rgb(0, 0, 0) 0px 0px 1px;
+}
+
+.reset-password-arrow-icon::before , .update-social-info-arrow-icon::before ,.update-user-info-arrow-icon::before {
+    content: '\e5c5';
+    font-family: 'Material Icons';
+    cursor: pointer;
+    font-size: 24px;
+    color: #000000;
+    text-shadow: rgb(0, 0, 0) 0px 0px 1px;
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.forget
+{
+    
+    color: #000000;
+    text-shadow: black 12px -24px 20px;
+}
+
+.forget a
+{
+    color: #fd8434;
+    font-weight: 600;
+    text-shadow: rgb(255, 251, 251) 12px -24px 20px;
+}
+
+.rotate-arrow , .rotate-arrow-social-info ,.rotate-arrow-user-info {
+    transform: rotate(180deg);
+}
+
+
+
+.user-info , .password , .social
+{
+margin-bottom: 10px;
+}
+
+.update-social-info-button {
+margin: 0 auto;
+}
+
+.social-section-header
+{
+
+color: #020202;
+    text-shadow: rgb(255, 255, 255) 0px 0px 7px;
+}
+
+
+

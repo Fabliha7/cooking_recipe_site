@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    
+    <link rel="stylesheet" href="profile.css">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../../../logo photo.png" type="image/x-icon" />
+
+
+</head>
+<body>
+
+
+<div class="navbar">
+    <div class="back-arrow" onclick="goBack()">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none"  stroke="currentColor" width="40" height="24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        
+    </div>
+    <div class="navbar-links">
+        <a href="profile.html">Profile</a>
+        <a href="../settings/st.html">Settings</a>
+
+        <div class="dropdown-one">
+            <a href="#">Order</a>
+            <div class="dropdown-content">
+                <a href="../order_history/order_history.html">Order History</a>
+                <a href="../card/payment.html">Card</a>
+            </div>
+        </div>
+
+        <a href="../logout/logout-confirmation.html">Logout</a>
+    </div>
+</div>
+
+<div class="box">
+    <div class="square" style="--i:0;"></div>
+    <div class="square" style="--i:1;"></div>
+    <div class="square" style="--i:2;"></div>
+    <div class="square" style="--i:3;"></div>
+    <div class="square" style="--i:4;"></div>
+
+    <div class="container">
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <div class="profile-info">
+            <h2>User Profile</h2>
+
+            <div class="user-info">
+                <label>Profile Photo:</label>
+                <img src="profile.jpg" alt="Profile Photo">
+            </div>
+
+            <div class="user-info">
+                <label>User Name:</label>
+                <div class="type" id="username">username123</div>
+            </div>
+
+            <div class="user-info">
+                <label>Full Name:</label>
+                <div class="type" id="fullname">John Doe</div>
+            </div>
+
+            <div class="user-info">
+                <label>Gender:</label>
+                <div class="type" id="gender">Male</div>
+            </div>
+
+            <div class="user-info">
+                <label>Birthday:</label>
+                <div class="type" id="birthday">January 1, 1990</div>
+            </div>
+
+            <div class="user-info">
+                <label>Country:</label>
+                <div class="type" id="country">Country Name</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="profile.js"></script>
+
+
+
+</body>
+</html>

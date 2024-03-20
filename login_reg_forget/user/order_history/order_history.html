@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="order_history.css">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../../../logo photo.png" type="image/x-icon" />
+
+
+
+
+    <title>Order History</title>
+</head>
+<body>
+<div class="page">
+    <div class="navbar">
+        <div class="back-arrow" onclick="goBack()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" width="40" height="24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+        </div>
+
+
+        <div class="navbar-links">
+            <a href="../user_profile/profile.html">Profile</a>
+            <a href="../settings/st.html">Settings</a>
+            
+            <div class="dropdown-one">
+                <a href="#">Order</a>
+                <div class="dropdown-content">
+                    <a href="order history.html">Order History</a>
+                    <a href="../card/payment.html">Card</a>
+                </div>
+            </div>
+            <a href="../logout/logout-confirmation.html">Logout</a>
+        </div>
+    </div>
+
+<div class="container-three">
+<h1 class="text" style="color: orange;">Order History</h1>
+<h4 class="text" style="color: black;">in one week</h4>
+
+<div id="orderTableContainer">
+    <table id="orderTable" class="table">
+        <thead>
+            <tr>
+                <th>Food Serial</th>
+                <th>Name</th>
+                <th>Purchase Time</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Delivery Status</th>
+                <th>Receipt</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example 1 -->
+            <tr>
+                <td>001</td>
+                <td>Burger</td>
+                <td>2024-02-01 12:30 PM</td>
+                <td>2</td>
+                <td>$10.00</td>
+                <td>Delivered</td>
+                <td><a href="../../../money-receipt_kanij.html" class="receipt-link">View Receipt</a></td>
+            </tr>
+            <!-- Example 2 -->
+            <tr>
+                <td>002</td>
+                <td>Pizza</td>
+                <td>2024-02-02 6:45 PM</td>
+                <td>1</td>
+                <td>$12.50</td>
+                <td>Pending</td>
+                <td><a href="../../../money-receipt_kanij.html" class="receipt-link">View Receipt</a></td>
+            </tr>
+            <!-- Example 3 (Initially hidden) -->
+            <tr class="hidden">
+                <td>003</td>
+                <td>Salad</td>
+                <td>2024-02-03 1:15 PM</td>
+                <td>3</td>
+                <td>$15.75</td>
+                <td>Delivered</td>
+                <td><a href="../../../money-receipt_kanij.html" class="receipt-link">View Receipt</a></td>
+            </tr>
+            <!-- Example 4 (Initially hidden) -->
+            <tr class="hidden">
+                <td>004</td>
+                <td>Sandwich</td>
+                <td>2024-02-04 8:30 AM</td>
+                <td>2</td>
+                <td>$8.50</td>
+                <td>Pending</td>
+                <td><a href="../../../money-receipt_kanij.html" class="receipt-link">View Receipt</a></td>
+            </tr>
+            <!-- Add more examples if needed -->
+        </tbody>
+    </table>
+</div>
+
+<div id="buttonsContainer">
+    <button id="showMoreButton">Show More</button>
+    <button id="hideButton" style="display: none;">Hide</button>
+</div>
+
+<div id="totalSpend">Total Spend: $0.00</div>
+
+</div>
+
+
+<script src="order page.js"></script>
+
+
+</body>
+</html>

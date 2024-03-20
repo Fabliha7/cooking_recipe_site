@@ -1,0 +1,264 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+ {
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 85vh;
+
+}
+body::before
+{
+content: '';
+position: absolute;
+inset: 0;
+background-image: url(bg.jpg);
+background-attachment: fixed;
+background-size: cover;
+background-position: center;
+
+}
+
+body.signup::after
+{
+opacity: 1;
+}
+section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+}
+
+.box
+{
+    position: relative;
+}
+
+.box .square
+{
+    
+    position: absolute;
+    background-color: #0e0e0d;
+    background-image: url(cir\ bg.png);
+    box-shadow: 0 25px 45px rgba(24, 24, 8, 0.1);
+    border: 1px solid rgba(18, 52, 222, 0.188);
+    /*border-right: 1px solid rgba(249, 242, 242, 0.2);
+    border-bottom: 1px solid rgba(239, 220, 50, 0.2);*/
+    background: rgba(15, 15, 15, 0.1);
+    border-radius: 10px;
+    animation: animate 10s linear infinite;
+    animation-delay: calc(-1s * var(--i));
+}
+
+@keyframes animate
+{
+    0%
+    {
+        transform: translateY(-40px);
+    }
+    50%
+    {
+        transform: translateY(40px);
+    }
+}
+
+.box .square:nth-child(1)
+{
+    background-image: url(cir\ bg.png);
+    background-size: cover;
+    background-position: center;
+    top: -50px;
+    right: -60px;
+    width: 100px;
+    height: 70px;
+}
+
+.box .square:nth-child(2)
+{
+    background-image: url(cir\ bg.png);
+    background-size: cover;
+    background-position: center;
+    top: 150px;
+    left: -100px;
+    width: 120px;
+    height: 85px;
+    z-index: 2;
+}
+
+.box .square:nth-child(3)
+{
+    background-image: url(cir\ bg.png);
+    background-size: cover;
+    background-position: center;
+    bottom: -50px;
+    left: 100px;
+    width: 80px;
+    height: 60px;
+  
+}
+
+.box .square:nth-child(4)
+{
+    background-image: url(cir\ bg.png);
+    background-size: cover;
+    background-position: center;
+    bottom: 50px;
+    right: -60px;
+    width: 80px;
+    height: 55px;
+    z-index: 2;
+}
+
+.box .square:nth-child(5) 
+{
+    background-image: url(cir\ bg.png);
+    background-size: cover;
+    background-position: center;
+    top: -80px;
+    right: 140px;
+    width: 60px;
+    height: 40px;
+    z-index: 2;
+}
+
+.container
+{
+    position: relative;
+    width: 400px;
+    min-height: 400px;
+    /*background: rgba(255, 255, 255, 0.1);*/
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /*border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);*/
+}
+
+
+
+.container span
+{
+    position: absolute;
+    inset: 5px;
+    overflow: hidden;
+    border-radius: 15px;
+    background-image: url(bg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+
+}
+.container span::before
+{
+    content: '';
+    position: absolute;
+    inset: 5px;
+    
+    border-radius: 15px;
+}
+
+
+.form
+{
+   position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+}
+
+.form h1
+{
+    position: relative;
+    color: #da5aa5;
+    text-shadow: rgb(0, 1, 19) 8px -0px 10px;
+    font-size: 24px;
+   /* font-weight: 600;*/
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+
+.form h1::before
+{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 200px;
+    height: 2px;
+    background: #e97aa4;
+}
+
+.form .inputbox input {
+    width: 100%;
+    background: rgba(111, 113, 225, 0.39);
+    border: none;
+    margin: 10px 0;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #4c55cf;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
+
+}
+
+
+.form .inputbox input::placeholder
+{
+    color: #5d64fa;
+}
+
+.form .inputbox input[type="submit"]
+{
+    background: #0048ff84;
+    color: #eb6fa3d7;;
+    max-width: 140px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 550;
+}
+
+.form .inputbox input:hover[type="submit"]
+{
+   
+    background-color: rgba(245, 69, 151, 0.556);
+    border: 2px solid #2c0ed755;
+    color: #3b44de; 
+}
+
+.return
+{
+    
+    color: #3b4d95;
+    text-shadow: black 12px -24px 20px;
+}
+
+.return a
+{
+    color: #a8b2ef;
+    font-weight: 600;
+    text-shadow: rgb(14, 13, 13) -100px 5px 20px;
+}
+.return a:hover
+{
+    color: #0430f462;
+    font-weight: 600;
+    text-shadow: rgb(255, 251, 251) 12px -24px 20px;
+}

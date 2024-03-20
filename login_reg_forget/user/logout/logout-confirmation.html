@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- favicon -->
+<link rel="shortcut icon" href="../../../logo photo.png" type="image/x-icon" />
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout Confirmation</title>
+    <style>
+         * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100%;
+            background: #592f0287;
+            background-image: url("image_prev_ui.png");
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: 400px ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 0;
+           
+        }
+
+        .confirmation-container {
+            max-width: 400px;
+            background-color: #ffffff95;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+            animation: slideIn 0.5s ease-out;
+        }
+        h1 {
+            color: #db8330;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+           
+
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+           
+        }
+
+        a {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #f69a06;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            
+        }
+
+        a:hover {
+            background-color: #f5961a3e; 
+            color: #000000;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="confirmation-container">
+        <h1>Logout Confirmation</h1>
+        <p>You are about to log out. Are you sure you want to leave?</p>
+        <a href="logout.html">Logout</a>
+    </div>
+
+
+</body>
+
+</html>
